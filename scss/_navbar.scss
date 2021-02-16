@@ -1,0 +1,111 @@
+@import 'variables';
+@import 'normalize';
+@import 'helper';
+@import 'global';
+
+.navbar {
+  background-color: $bg-color;
+
+  .nav .nav__collapse.collapsing {
+    height: 0;
+    overflow: hidden;
+    transition: height 350ms ease;
+  }
+
+  .collapse:not(.show) {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem;
+    @media (min-width: 768px) {
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      color: white;
+    }
+
+    .nav__collapse {
+      width: 100%;
+      @media (min-width: 768px) {
+        display: flex !important;
+      }
+
+      .nav__list,
+      .nav__social {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5rem 0;
+
+        @media (min-width: 768px) {
+          margin-left: auto;
+        }
+
+        .nav__list-item {
+          color: rgba(255, 255, 255, 0.85);
+          display: flex;
+          width: 50%;
+          align-items: center;
+          justify-content: center;
+          @media (min-width: 768px) {
+            flex: 0 0 auto;
+            width: auto;
+          }
+
+          .nav-svg {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          &.active {
+            color: white;
+          }
+          &:hover,
+          &:focus {
+            color: #fff;
+          }
+        }
+      }
+
+      .nav__list {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        @media (min-width: 768px) {
+          border-bottom: unset;
+        }
+      }
+    }
+    .mobile__menu-btn {
+      > span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.55);
+        transition: all 350ms ease;
+
+        &:not(:last-child) {
+          margin-bottom: 0.3125rem;
+        }
+      }
+
+      &.open {
+        > span:first-child {
+          transform: rotate(45deg) translate(6px, 5px);
+        }
+
+        > span:nth-child(2) {
+          opacity: 0;
+        }
+
+        > span:last-child {
+          transform: rotate(-45deg) translate(5px, -4px);
+        }
+      }
+    }
+  }
+}
